@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import bean.Department;
 import bean.Professor;
 import bean.UserCredentials;
 import bean.UserDetails;
@@ -51,7 +52,7 @@ public class AdminServlet extends HttpServlet {
 		AdminService as = new AdminService();
 		
 		if(action.equals("profile")) {
-			RequestDispatcher rd = request.getRequestDispatcher("add-professors-admin.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("admin-dashboard.jsp");
 			rd.forward(request, response);
 		}
 		
@@ -109,8 +110,8 @@ public class AdminServlet extends HttpServlet {
 				rd.forward(request, response);
 			}
 		}
+		
 		else if(action.equals("students")) {
-	//			UserCredentials user = (UserCredentials) sn.getAttribute("user");
 			HomeService hs = new HomeService();
 			ArrayList<UserCredentials> students = new ArrayList<UserCredentials>();
 			try {
@@ -130,27 +131,43 @@ public class AdminServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("students-admin.jsp");
 			rd.forward(request, response);
 		}
+		
+		else if(action.equals("departments")) {
+			HomeService hs = new HomeService();
+			ArrayList<Department> departments = new ArrayList<Department>();
+			
+			try {
+				departments = hs.getDepartments();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			request.setAttribute("departments", departments);
+			RequestDispatcher rd = request.getRequestDispatcher("admin-department.jsp");
+			rd.forward(request, response);
+		}
+		
 		else if(action.equals("professors")) {
-					HomeService hs = new HomeService();
-					ArrayList<UserCredentials> professors = new ArrayList<UserCredentials>();
-					try {
-						professors = hs.getProfessors();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-					ArrayList<Professor> professors_details = new ArrayList<Professor>();
-					for(UserCredentials professor : professors) {
-						try {
-							professors_details.add(hs.getProfessor(professor));
-						} catch (SQLException e) {
-							e.printStackTrace();
-						}
-					}
-					System.out.println(professors);
-					request.setAttribute("professors", professors_details);
-					RequestDispatcher rd = request.getRequestDispatcher("professors-admin.jsp");
-					rd.forward(request, response);
+			HomeService hs = new HomeService();
+			ArrayList<UserCredentials> professors = new ArrayList<UserCredentials>();
+			try {
+				professors = hs.getProfessors();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			ArrayList<Professor> professors_details = new ArrayList<Professor>();
+			for(UserCredentials professor : professors) {
+				try {
+					professors_details.add(hs.getProfessor(professor));
+				} catch (SQLException e) {
+					e.printStackTrace();
 				}
+			}
+			request.setAttribute("professors", professors_details);
+			RequestDispatcher rd = request.getRequestDispatcher("professors-admin.jsp");
+			rd.forward(request, response);
+		}
+		
 	}
 
 	/**

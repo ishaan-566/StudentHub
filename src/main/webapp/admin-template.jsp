@@ -17,7 +17,8 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Favicon-->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/plugins/morrisjs/morris.css" />
+    <!-- JQuery DataTable Css -->
+    <link href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom Css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/color_skins.css">
@@ -168,8 +169,8 @@
                     <ul class="list">
                         <li>
                             <div class="user-info">
-                                <div class="image"><a href="students-profile.jsp"><img
-                                            src="assets/images/student/${user_det.getImage()}" alt="User"></a></div>
+                                <div class="image"><a href="#"><img
+                                            src="assets/images/${user_det.getImage()}" alt="User"></a></div>
                                 <div class="detail">
                                     <h4>${user_det.getFname()}&nbsp;${user_det.getLname()}</h4>
                                     <small>${user_det.getDepartment()}</small>
@@ -177,18 +178,19 @@
                             </div>
                         </li>
                         <li class="header">MAIN</li>
-                        <li><a href="index.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+                        <li><a href="admin-dashboard.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+                        </li>
                         <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-outline"></i><span>Students</span> </a>
                             <ul class="ml-menu">
-                                <li><a href="HomeServlet?action=students">All Students</a></li>
-                                <li class="active"><a href="students-profile.jsp">Profile</a></li>
+                                <li class="active"><a href="HomeServlet?action=students">All Students</a></li>                               
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-alt"></i><span>Professors</span> </a>
                             <ul class="ml-menu">
                                 <li><a href="ProfessorServlet?action=professors">All Professors</a></li>
+                                <li><a href="admin-add-professors.jsp">Add Professors</a></li>
                             </ul>
                         </li>
 
@@ -255,7 +257,8 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span
-                                                class="sr-only">89% Complete</span> </div>
+                                                class="sr-only">89%
+                                                Complete</span> </div>
                                     </div>
                                 </li>
                                 <li>
@@ -263,7 +266,8 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-amber" role="progressbar" aria-valuenow="56"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span
-                                                class="sr-only">56% Complete</span> </div>
+                                                class="sr-only">56%
+                                                Complete</span> </div>
                                     </div>
                                 </li>
                                 <li>
@@ -271,7 +275,8 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-green" role="progressbar" aria-valuenow="78"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 78%"> <span
-                                                class="sr-only">78% Complete</span> </div>
+                                                class="sr-only">78%
+                                                Complete</span> </div>
                                     </div>
                                 </li>
                                 <li>
@@ -279,7 +284,8 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-blush" role="progressbar" aria-valuenow="43"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span
-                                                class="sr-only">56% Complete</span> </div>
+                                                class="sr-only">56%
+                                                Complete</span> </div>
                                     </div>
                                 </li>
                                 <li>
@@ -287,7 +293,8 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="43"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 50%"> <span
-                                                class="sr-only">50% Complete</span> </div>
+                                                class="sr-only">50%
+                                                Complete</span> </div>
                                     </div>
                                 </li>
                             </ul>
@@ -343,186 +350,18 @@
     </aside>
     
 
-    <section class="content profile-page">
-        <div class="block-header">
-            <div class="row">
-                <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Student Profile
-                        <small class="text-muted">Welcome to ITS Student Hub</small>
-                    </h2>
-                </div>
-                <div class="col-lg-5 col-md-6 col-sm-12">
-                    
-                    <ul class="breadcrumb float-md-right">
-                        <li class="breadcrumb-item"><a href="index.jsp"><i class="zmdi zmdi-home"></i> ITS Student Hub</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Student</a></li>
-                        <li class="breadcrumb-item active">Profile</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row clearfix">
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="card member-card bg-dark">
-                        <div class="header">
-                            <h4 class="m-t-10 col-white">${user_det.getFname() }&nbsp;${user_det.getLname() }</h4>
-                        </div>
-                        <div class="member-img">
-                            <a href="javascript:void(0);">
-                                <img src="assets/images/student/${user_det.getImage()}" class="rounded-circle" alt="profile-image">
-                            </a>
-                        </div>
-                        <div class="body">
-                            
-                            <hr>
-                            <strong class="text-muted">Department</strong>
-                            <p class="col-white">${user_det.getDepartment()}</p>
-                            <strong class="text-muted">Email ID</strong>
-                            <p class="col-white">${user_det.getEmail()}</p>
-                            <strong class="text-muted">Phone</strong>
-                            <p class="col-white">${user_det.getPhone()}</p>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <h2><strong>General</strong> Report</h2>
-                        </div>
-                        <div class="body">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <div>Computer</div>
-                                    <div class="progress m-b-20">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped"
-                                            role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                            style="width: 40%"> <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>Sport</div>
-                                    <div class="progress m-b-20">
-                                        <div class="progress-bar progress-bar-info progress-bar-striped"
-                                            role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                            style="width: 20%"> <span class="sr-only">20% Complete</span> </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>English</div>
-                                    <div class="progress m-b-20">
-                                        <div class="progress-bar progress-bar-warning progress-bar-striped"
-                                            role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                            style="width: 60%"> <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>Design</div>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-danger progress-bar-striped"
-                                            role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                            style="width: 80%"> <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-12 col-sm-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2><strong>Progress</strong> Report</h2>                          
-                        </div>
-                        <div class="body">
-                            <div id="m_area_chart"></div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="body">
-                            <p>It is a long established fact that a reader will be distracted by the readable content of
-                                a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                                here', making it look like readable English. </p>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
-                                McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
-                                the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
-                                the cites of the word in classical literature, discovered the undoubtable source</p>
-                        </div>
-                    </div>
-                    <div class="card" id="timeline">
-                        <div class="body">
-                            <div class="timeline-body">
-                                <div class="timeline m-border">
-                                    <div class="timeline-item">
-                                        <div class="item-content">
-                                            <div class="text-small">Just now</div>
-                                            <p>Discharge.</p>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item border-info">
-                                        <div class="item-content">
-                                            <div class="text-small">11:30</div>
-                                            <p>Routine Checkup</p>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item border-warning border-l">
-                                        <div class="item-content">
-                                            <div class="text-small">10:30</div>
-                                            <p>Operation </p>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item border-warning">
-                                        <div class="item-content">
-                                            <div class="text-small">3 days ago</div>
-                                            <p>Routine Checkup</p>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item border-danger">
-                                        <div class="item-content">
-                                            <div class="text--muted">Thu, 10 Mar</div>
-                                            <p>Routine Checkup</p>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item border-info">
-                                        <div class="item-content">
-                                            <div class="text-small">Sat, 5 Mar</div>
-                                            <p>Routine Checkup</p>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item border-danger">
-                                        <div class="item-content">
-                                            <div class="text-small">Sun, 11 Feb</div>
-                                            <p>Blood checkup test</p>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item border-info">
-                                        <div class="item-content">
-                                            <div class="text-small">Thu, 17 Jan</div>
-                                            <p>Add Student ward no. 21</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
 
 
     <!-- Jquery Core Js -->
     <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Bootstrap JS and jQuery v3.2.1 -->
     <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
-
-    <script src="assets/bundles/morrisscripts.bundle.js"></script> <!-- Morris Plugin Js -->
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="assets/bundles/datatablescripts.bundle.js"></script>
+    <script src="assets/js/pages/tables/jquery-datatable.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
-    <script src="assets/js/pages/student-profile.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script>
 $( document ).ready(function() {
 	var t = $(".right-sidebar .choose-skin li.active").data("theme");

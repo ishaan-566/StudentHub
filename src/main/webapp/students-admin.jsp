@@ -178,7 +178,7 @@
                             </div>
                         </li>
                         <li class="header">MAIN</li>
-                        <li><a href="index.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+                        <li><a href="admin-dashboard.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
                         </li>
                         <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-outline"></i><span>Students</span> </a>
@@ -190,7 +190,7 @@
                                     class="zmdi zmdi-accounts-alt"></i><span>Professors</span> </a>
                             <ul class="ml-menu">
                                 <li><a href="ProfessorServlet?action=professors">All Professors</a></li>
-                                <li><a href="add-professors.jsp">Add Professors</a></li>
+                                <li><a href="admin-add-professors.jsp">Add Professors</a></li>
                             </ul>
                         </li>
 

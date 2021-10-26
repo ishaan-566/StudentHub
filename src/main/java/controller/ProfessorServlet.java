@@ -39,6 +39,11 @@ public class ProfessorServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("AdminServlet");
 			rd.forward(request, response);
 		}
+		else {
+			request.setAttribute("action", action);
+			RequestDispatcher rd = request.getRequestDispatcher("HomeServlet");
+			rd.forward(request, response);
+		}
 	}
 
 	/**

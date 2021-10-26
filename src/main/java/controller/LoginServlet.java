@@ -69,14 +69,16 @@ public class LoginServlet extends HttpServlet {
 			
 			if(ls.login(user)) {
 				sn.setAttribute("user", user);
-				HomeService hs = new HomeService();
-				UserDetails user_details = null;
-				try {
-					user_details = hs.getUserDetails(user);
-				} catch (SQLException e) {
-					e.printStackTrace();
+				if(user.getUsertype() != "professor") {
+					HomeService hs = new HomeService();
+					UserDetails user_details = null;
+					try {
+						user_details = hs.getUserDetails(user);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					sn.setAttribute("user_det", user_details);
 				}
-				sn.setAttribute("user_det", user_details);
 				RequestDispatcher rd = request.getRequestDispatcher("HomeServlet?action=profile");
 				rd.forward(request, response);
 			}

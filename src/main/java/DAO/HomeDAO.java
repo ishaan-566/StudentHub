@@ -21,6 +21,7 @@ public class HomeDAO {
 	}
 
 	public UserDetails getUserDetails(UserCredentials user) throws SQLException {
+		
 		UserDetails user_details = new UserDetails();
 		
 		String cmd = "select * from userdetails where email=? and rollnumber=?";

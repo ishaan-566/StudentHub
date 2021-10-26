@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
-<%@page import="java.util.*" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html class="no-js " lang="en">
 
@@ -12,16 +13,13 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
-    <title>:: ITS Student Hub University Admin ::</title>
+    <title>:: Departments ITS Student Hub University ::</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <!-- Dropzone Css -->
-    <link href="assets/plugins/dropzone/dropzone.css" rel="stylesheet">
-    <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
-        rel="stylesheet" />
-    <!-- Bootstrap Select Css -->
-    <link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-
+    <!-- JQuery DataTable Css -->
+    <link href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom Css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/color_skins.css">
@@ -45,8 +43,7 @@
                 <div class="navbar-header">
                     <a href="javascript:void(0);" class="bars"></a>
                     <a class="navbar-brand" href="index.jsp"><img src="assets/images/logo.svg" width="30"
-                            alt="ITS Student Hub"><span class="m-l-10">ITS Student
-                            Hub</span></a>
+                            alt="ITS Student Hub"><span class="m-l-10">ITS Student Hub</span></a>
                 </div>
             </li>
             <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a>
@@ -75,8 +72,7 @@
                                             </div>
                                         </div>
                                         <ul class="list-unstyled team-info">
-                                            <li class="m-r-15"><small class="text-muted">Team</small>
-                                            </li>
+                                            <li class="m-r-15"><small class="text-muted">Team</small></li>
                                             <li>
                                                 <img src="assets/images/xs/avatar2.jpg" alt="Avatar">
                                             </li>
@@ -101,8 +97,7 @@
                                             </div>
                                         </div>
                                         <ul class="list-unstyled team-info">
-                                            <li class="m-r-15"><small class="text-muted">Team</small>
-                                            </li>
+                                            <li class="m-r-15"><small class="text-muted">Team</small></li>
                                             <li>
                                                 <img src="assets/images/xs/avatar10.jpg" alt="Avatar">
                                             </li>
@@ -133,8 +128,7 @@
                                             </div>
                                         </div>
                                         <ul class="list-unstyled team-info">
-                                            <li class="m-r-15"><small class="text-muted">Team</small>
-                                            </li>
+                                            <li class="m-r-15"><small class="text-muted">Team</small></li>
                                             <li>
                                                 <img src="assets/images/xs/avatar5.jpg" alt="Avatar">
                                             </li>
@@ -176,8 +170,8 @@
                     <ul class="list">
                         <li>
                             <div class="user-info">
-                                <div class="image"><a href="#"><img
-                                            src="assets/images/${user_det.getImage()}" alt="User"></a></div>
+                                <div class="image"><a href="students-profile.jsp"><img
+                                            src="assets/images/student/${user_det.getImage()}" alt="User"></a></div>
                                 <div class="detail">
                                     <h4>${user_det.getFname()}&nbsp;${user_det.getLname()}</h4>
                                     <small>${user_det.getDepartment()}</small>
@@ -185,19 +179,18 @@
                             </div>
                         </li>
                         <li class="header">MAIN</li>
-                        <li><a href="index.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
-                        </li>
+                        <li><a href="index.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
                         <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-outline"></i><span>Students</span> </a>
                             <ul class="ml-menu">
-                                <li><a href="HomeServlet?action=students">All Students</a></li>                               
+                                <li><a href="HomeServlet?action=students">All Students</a></li>
+                                <li><a href="students-profile.jsp">Profile</a></li>
                             </ul>
                         </li>
-                        <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i
+                        <li class="open active"><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-alt"></i><span>Professors</span> </a>
                             <ul class="ml-menu">
-                                <li><a href="ProfessorServlet?action=professors">All Professors</a></li>
-                                <li class="active"><a href="add-professors.jsp">Add Professors</a></li>
+                                <li class="active"><a href="ProfessorServlet?action=professors">All Professors</a></li>
                             </ul>
                         </li>
 
@@ -264,8 +257,7 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span
-                                                class="sr-only">89%
-                                                Complete</span> </div>
+                                                class="sr-only">89% Complete</span> </div>
                                     </div>
                                 </li>
                                 <li>
@@ -273,8 +265,7 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-amber" role="progressbar" aria-valuenow="56"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span
-                                                class="sr-only">56%
-                                                Complete</span> </div>
+                                                class="sr-only">56% Complete</span> </div>
                                     </div>
                                 </li>
                                 <li>
@@ -282,8 +273,7 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-green" role="progressbar" aria-valuenow="78"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 78%"> <span
-                                                class="sr-only">78%
-                                                Complete</span> </div>
+                                                class="sr-only">78% Complete</span> </div>
                                     </div>
                                 </li>
                                 <li>
@@ -291,8 +281,7 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-blush" role="progressbar" aria-valuenow="43"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span
-                                                class="sr-only">56%
-                                                Complete</span> </div>
+                                                class="sr-only">56% Complete</span> </div>
                                     </div>
                                 </li>
                                 <li>
@@ -300,8 +289,7 @@
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="43"
                                             aria-valuemin="0" aria-valuemax="100" style="width: 50%"> <span
-                                                class="sr-only">50%
-                                                Complete</span> </div>
+                                                class="sr-only">50% Complete</span> </div>
                                     </div>
                                 </li>
                             </ul>
@@ -347,8 +335,7 @@
                         <h6>Left Menu</h6>
                         <button class="t-light btn btn-default btn-simple btn-round">Light Menu</button>
                         <button class="t-dark btn btn-default btn-round">Dark Menu</button>
-                        <button class="m_img_btn btn btn-primary btn-round btn-block">Sidebar
-                            Image</button>
+                        <button class="m_img_btn btn btn-primary btn-round btn-block">Sidebar Image</button>
                     </div>
 
                 </div>
@@ -356,207 +343,118 @@
 
         </div>
     </aside>
+    
 
-
-    <section class="content">
+    <section class="content profile-page">
         <div class="block-header">
             <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-12">
-                    <h2>Add Professors
-                        <small>Welcome to ITS Student Hub</small>
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>All Student
+                        <small class="text-muted">Welcome to ITS Student Hub</small>
                     </h2>
                 </div>
-                <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    
                     <ul class="breadcrumb float-md-right">
-                        <li class="breadcrumb-item"><a href="index.jsp"><i class="zmdi zmdi-home"></i>
-                                ITS Student Hub</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Professors</a></li>
-                        <li class="breadcrumb-item active">Add</li>
+                        <li class="breadcrumb-item"><a href="index.jsp"><i class="zmdi zmdi-home"></i> ITS Student Hub</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Professor</a></li>
+                        <li class="breadcrumb-item active">All</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            
-                <div class="row clearfix">
-                
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2><strong>Basic</strong> Information <small>${message }</small> </h2>
-
-                            </div>
-
-                            <div class="body">
-                            <form method="post" action="AdminServlet" enctype="multipart/form-data">
-                                <div class="row clearfix">
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Position"
-                                                name="position">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <input type="number" class="form-control" placeholder="Phone" name="phone">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name"
-                                                name="fname">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name"
-                                                name="lname">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <input type="date" class="form-control" placeholder="Date Of Birth"
-                                                name="dob">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-12">
-                                        <select class="form-control show-tick" name="gender">
-                                            <option value="">-- Gender --</option>
-                                            <option value="10">Male</option>
-                                            <option value="20">Female</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                            <select class="form-control show-tick" name="department">
-                                                <option value="">-- Department --</option>
-                                                <option value="BCA">BCA</option>
-                                                <option value="MCA">MCA</option>
-                                                <option value="BBA">BBA</option>
-                                                <option value="MBA">MBA</option>
-                                                <option value="PGDM">PGDM</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="form-group">
-                                            <input type="file" class="form-control" name="img" accept="image/*"
-                                                onchange="loadFile(event)" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div style="max-width: 150px">
-                                            <img id="output" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card student-list">
+                        <div class="header">
+                            <h2><strong>Professors</strong> List</h2>
                         </div>
+                           <div class="body table-responsive">
+                               <table class="table table-hover m-b-0 js-basic-example dataTable">
+                                   <thead>
+                                       <tr>
+                                           <th>Media</th>
+                                           <th>RollNumber</th>
+                                           <th>Name</th>
+                                           <th>Gender</th>
+                                           <th>Phone</th>
+                                           <th>Department</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                       <c:forEach items="${professors }" var="professor">
+                                       	<tr>
+                                           <td><span class="list-icon"><img class="rounded"
+                                                       src="assets/images/professors/${professor.image }" alt="${professor.fname }"></span></td>
+                                           <td><span class="list-name">${professor.id }</span></td>
+                                           <td>${professor.fname }&nbsp;${professor.lname }</td>
+                                           <td>${professor.gender }</td>
+                                           <td>${professor.phone }</td>
+                                           <c:choose>
+                                               <c:when test = "${fn:contains(professor.department, 'BCA')}">
+                                                   <td><span class="badge badge-primary">${professor.department }</span></td>
+                                               </c:when>
+                                               <c:when test = "${fn:contains(professor.department, 'MCA')}">
+                                                   <td><span class="badge badge-default">${professor.department }</span></td>
+                                               </c:when>
+                                               <c:when test = "${fn:contains(professor.department, 'BBA')}">
+                                                   <td><span class="badge badge-info">${professor.department }</span></td>
+                                               </c:when>
+                                               <c:when test = "${fn:contains(professor.department, 'MBA')}">
+                                                   <td><span class="badge badge-success">${professor.department }</span></td>
+                                               </c:when>
+                                               <c:when test = "${fn:contains(professor.department, 'PGDM')}">
+                                                   <td><span class="badge badge-warning">${professor.department }</span></td>
+                                               </c:when>
+                                               <c:otherwise>
+                                                   <td><span class="badge badge-danger">${professor.department }</span></td>
+                                               </c:otherwise>
+                                           </c:choose>
+                                       </tr>
+                                       </c:forEach>
+                                       
+                                   </tbody>
+                               </table>
+                           </div>
                     </div>
                 </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2><strong>Professor's</strong> Account Information <small>Description
-                                        text here...</small>
-                                </h2>
-                            </div>
-                            <div class="body">
-                                <div class="row clearfix">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter email"
-                                                name="email">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter ID" name="id">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Enter Password"
-                                                name="password">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="body">
-                                <div class="row clearfix">
-                                    <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-raised btn-round btn-primary" name="action"
-                                            value="add-professor">Submit</button>
-                                        <button type="reset" class="btn btn-raised btn-round">Clear</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
     </section>
+    
 
 
 
     <!-- Jquery Core Js -->
-    <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Bootstrap JS and jQuery v3.2.1 -->
-    <script src="assets/bundles/vendorscripts.bundle.js"></script>
-    <!-- slimscroll, waves Scripts Plugin Js -->
-
-    <script src="assets/plugins/autosize/autosize.js"></script> <!-- Autosize Plugin Js -->
-    <script src="assets/plugins/momentjs/moment.js"></script> <!-- Moment Plugin Js -->
-    <script src="assets/plugins/dropzone/dropzone.js"></script> <!-- Dropzone Plugin Js -->
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-
-    <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
-    <script src="assets/js/pages/forms/basic-form-elements.js"></script>
-
-
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+    <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="assets/bundles/datatablescripts.bundle.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="assets/bundles/mainscripts.bundle.js"></script>
+    <script src="assets/js/pages/tables/jquery-datatable.js"></script>
     <script>
-        $(document).ready(function () {
-            var t = $(".right-sidebar .choose-skin li.active").data("theme");
-            $(".right-sidebar .choose-skin li").removeClass("active");
-
-            if ($.cookie("skin") !== null && $.cookie("skin") !== undefined) {
-                $('body').removeClass("theme-" + t)
-                $('body').addClass("theme-" + $.cookie("skin"));
-            }
-
-
-            var theme = $.cookie("theme");
-            if (theme == 'light') {
-                $("body").removeClass("menu_dark")
-            }
-            else if (theme == 'dark') {
-                $("body").addClass("menu_dark")
-            }
-
-        });
-    </script>
-    <script>
-        var loadFile = function (event) {
-            var reader = new FileReader();
-            reader.onload = function () {
-                var output = document.getElementById('output');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        };
-    </script>
+$( document ).ready(function() {
+	var t = $(".right-sidebar .choose-skin li.active").data("theme");
+	$(".right-sidebar .choose-skin li").removeClass("active");
+	
+	if ($.cookie("skin") !== null && $.cookie("skin") !== undefined) {
+		$('body').removeClass("theme-" + t)
+		$('body').addClass("theme-" + $.cookie("skin"));
+	}
+	
+	
+	var theme = $.cookie("theme");
+	if(theme == 'light'){
+		$("body").removeClass("menu_dark")
+	}
+	else if(theme == 'dark'){
+		$("body").addClass("menu_dark")
+	}
+	
+});
+</script>
 </body>
 
 </html>

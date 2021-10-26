@@ -180,7 +180,7 @@
                         </li>
                         <li class="header">MAIN</li>
                         <li><a href="index.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
-                        <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i
+                        <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-outline"></i><span>Students</span> </a>
                             <ul class="ml-menu">
                                 <li><a href="HomeServlet?action=students">All Students</a></li>
@@ -190,7 +190,7 @@
                         <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-alt"></i><span>Professors</span> </a>
                             <ul class="ml-menu">
-                                <li><a href="professors.jsp">All Professors</a></li>
+                                <li><a href="ProfessorServlet?action=professors">All Professors</a></li>
                             </ul>
                         </li>
 

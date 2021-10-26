@@ -189,7 +189,7 @@
                         <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-alt"></i><span>Professors</span> </a>
                             <ul class="ml-menu">
-                                <li><a href="professors.jsp">All Professors</a></li>
+                                <li><a href="ProfessorServlet?action=professors">All Professors</a></li>
                             </ul>
                         </li>
 
@@ -198,7 +198,7 @@
                         <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-city-alt"></i><span>Departments</span> </a>
                             <ul class="ml-menu">
-                                <li><a href="HomeServlet?action=departmentss">All Departments</a></li>
+                                <li><a href="HomeServlet?action=departments">All Departments</a></li>
                             </ul>
                         </li>
                     </ul>

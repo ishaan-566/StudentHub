@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Department;
+import bean.Professor;
 import bean.UserCredentials;
 import bean.UserDetails;
 import service.HomeService;
@@ -70,8 +71,6 @@ public class HomeServlet extends HttpServlet {
 			}
 			
 			else if(action.equals("students")) {
-				System.out.println("test complete");
-		//			UserCredentials user = (UserCredentials) sn.getAttribute("user");
 				HomeService hs = new HomeService();
 				ArrayList<UserCredentials> students = new ArrayList<UserCredentials>();
 				try {
@@ -89,6 +88,27 @@ public class HomeServlet extends HttpServlet {
 				}
 				request.setAttribute("students", students_details);
 				RequestDispatcher rd = request.getRequestDispatcher("students.jsp");
+				rd.forward(request, response);
+			}
+			
+			else if(action.equals("professors")) {
+				HomeService hs = new HomeService();
+				ArrayList<UserCredentials> professors = new ArrayList<UserCredentials>();
+				try {
+					professors = hs.getProfessors();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				ArrayList<Professor> professors_details = new ArrayList<Professor>();
+				for(UserCredentials professor : professors) {
+					try {
+						professors_details.add(hs.getProfessor(professor));
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				request.setAttribute("professors", professors_details);
+				RequestDispatcher rd = request.getRequestDispatcher("professors.jsp");
 				rd.forward(request, response);
 			}
 		}

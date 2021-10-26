@@ -170,7 +170,7 @@
                         <li>
                             <div class="user-info">
                                 <div class="image"><a href="students-profile.jsp"><img
-                                            src="assets/images/student/${user_det.getImage()}" alt="User"></a></div>
+                                            src="assets/images/${user_det.getImage()}" alt="User"></a></div>
                                 <div class="detail">
                                     <h4>${user_det.getFname()}&nbsp;${user_det.getLname()}</h4>
                                     <small>${user_det.getDepartment()}</small>
@@ -178,7 +178,7 @@
                             </div>
                         </li>
                         <li class="header">MAIN</li>
-                        <li class="active"><a href="dashboard.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+                        <li class="active"><a href="admin-dashboard.jsp"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
                         <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-outline"></i><span>Students</span> </a>
                             <ul class="ml-menu">
@@ -188,8 +188,8 @@
                         <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-accounts-alt"></i><span>Professors</span> </a>
                             <ul class="ml-menu">
-                                <li><a href="professors.jsp">All Professors</a></li>
-                                <li><a href="add-professors.jsp">Add Professors</a></li>
+                                <li><a href="ProfessorServlet?action=professors">All Professors</a></li>
+                                <li><a href="admin-add-professors.jsp">Add Professors</a></li>
                             </ul>
                         </li>
 
@@ -198,7 +198,7 @@
                         <li><a href="javascript:void(0);" class="menu-toggle"><i
                                     class="zmdi zmdi-city-alt"></i><span>Departments</span> </a>
                             <ul class="ml-menu">
-                                <li><a href="HomeServlet?action=departmentss">All Departments</a></li>
+                                <li><a href="HomeServlet?action=departments">All Departments</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -348,7 +348,7 @@
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-12">
                     <h2>Dashboard
-                        <small>Welcome to Oreo</small>
+                        <small>Welcome to ITS Student Hub</small>
                     </h2>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-12 text-right">
@@ -366,7 +366,7 @@
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     <ul class="breadcrumb float-md-right">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Oreo</a></li>
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> ITS Student Hub</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ul>
                 </div>
