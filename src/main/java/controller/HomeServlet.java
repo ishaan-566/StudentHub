@@ -41,15 +41,22 @@ public class HomeServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		HttpSession sn = request.getSession(false); 
 		UserCredentials obj = (UserCredentials) sn.getAttribute("user");
+		
 		if(obj.getUsertype().equals("admin")) {
 			request.setAttribute("action", action);
 			RequestDispatcher rd = request.getRequestDispatcher("AdminServlet");
 			rd.forward(request, response);
 		}
+		else if(obj.getUsertype().equals("professor")) {
+
+			request.setAttribute("action", action);
+			RequestDispatcher rd = request.getRequestDispatcher("ProfessorServlet");
+			rd.forward(request, response);
+		}
 		else {
+			
 			if(action.equals("profile")) {
-				UserCredentials user = (UserCredentials) sn.getAttribute("user");
-				
+				UserCredentials user = (UserCredentials) sn.getAttribute("user");				
 				RequestDispatcher rd = request.getRequestDispatcher("students-profile.jsp");
 				rd.forward(request, response);
 			}
