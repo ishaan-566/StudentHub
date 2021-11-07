@@ -119,6 +119,12 @@ public class ProfessorServlet extends HttpServlet {
 			rd.forward(request, response);
 			
 		}
+		else if(action.equals("exams")) {
+			request.setAttribute("action", action);
+		    RequestDispatcher rd = request.getRequestDispatcher("ExamServlet");
+			rd.forward(request, response);
+			
+		}
 	}
 
 	/**
